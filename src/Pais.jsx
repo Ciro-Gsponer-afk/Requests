@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 
 function Pais() {
-  const { NamePais } = useParams()
+  const { NamePais } = useParams();
   const [Pais, SetPais] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/name/${NamePais}`)
@@ -31,6 +32,7 @@ function Pais() {
       <p><strong>Área:</strong> {Pais.area.toLocaleString()} km²</p>
       <p><strong>Moneda:</strong> {Object.values(Pais.currencies)[0].name}</p>
       <p><strong>Idioma principal:</strong> {Object.values(Pais.languages)[0]}</p>
+      <button onClick={() => navigate(`/`) } > Volver al INICIO </button>
     </div>
   );
 }

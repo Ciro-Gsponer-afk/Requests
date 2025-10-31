@@ -6,6 +6,7 @@ function App() {
   const [name, Setname] = useState("");
   const [Pais, SetPais] = useState(null); 
   const navigate = useNavigate();
+
   return (
     <>
       <h1>INFO PAISES</h1>
